@@ -1,0 +1,362 @@
+# In this document belongs every information I used or learned in Arcolinux
+# This is for looking things up quicky by searching the document
+# ToDo: make command line aliases to start the script search from anywhere
+# ToDo: make a script to print every entry with description if search-keyword is in header
+# Every entry titel start with #][!
+-
+-
+-
+
+
+
+
+# ][! Installing alacritty-theme from github
+git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
+# Add in alacritty.yaml file e.g. darcula}:
+import:
+  - ~/.alacritty-colorscheme/themes/{scheme_name}.yaml
+
+
+
+#][! Installing zsh-theme-powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+# Restart terminal for p10k configure
+
+
+
+# ][! Converting images to a .png file using mogrify
+# In current folder
+find . -name "*.jpg" -exec mogrify -format png {} \;
+
+
+
+# ][! i3 dpi scaling for windows or i3 panels
+# add line to .Xresources
+Xft.dpi:	220
+# Merge to make it properly loaded in .xinitrc
+xrdb -merge ~/.Xresources
+
+
+
+#][! Accessing the system clipboard from X11 inside neovim
+# Install xclip for access
+sudo pacman -S xclip
+# Add line to init.vim
+set clipboard+=unnamedplus
+
+
+
+#][! Restarting the display manager for changes in xorg.conf or screenlayout
+# Example lightdm 
+sudo systemctl restart lightdm
+
+
+
+#][! Change Screenlayout / resolution in i3
+save arandr output to ~/.screenlayout/monitor.sh
+# change resolution in monitor.sh
+
+
+
+#][! Change Wallpaper in qtile without software
+
+# Change line in .config/qtile/scripts/autostart.sh
+
+feh --bg-fill path-to-picture
+
+
+
+#][! Installing zsh, oh-my-zsh
+
+# Install zsh
+sudo pacman -S zsh
+
+# changing shell to zsh
+chsh -s ($which zsh)
+# or
+chsh -s /bin/zsh
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install powerlevel10k theme (p10k)
+
+sudo pacman -S zsh-theme-powerlevel10k --needed
+
+
+
+#][! urxvt change terminal colors
+# creat theme at terminal at terminal.sexy and export as Xresources
+# edit ~/Xresources and replace colors
+
+# example (monokai):
+
+! black
+*.color0:       #48483e
+*.color8:       #76715e
+
+! red
+*.color1:       #dc2566
+*.color9:       #fa2772
+
+! green
+*.color2:       #8fc029
+*.color10:      #a7e22e
+
+! yellow
+*.color3:       #d4c96e
+*.color11:      #e7db75
+
+! blue
+*.color4:       #55bcce
+*.color12:      #66d9ee
+
+! magenta
+*.color5:       #9358fe
+*.color13:      #ae82ff
+
+! cyan
+*.color6:       #56b7a5
+*.color14:      #66efd5
+
+! white
+*.color7:       #acada1
+*.color15:      #cfd0c2
+
+# reload config
+xrdb ~/.Xresources
+
+
+#][! ranger change default editor to nvim
+change in .bashrc or .zshrc
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+
+
+#][! Minecraft Install Forge
+# Download Forge
+https://files.minecraftforge.net/net/minecraftforge/forge/
+Allow .jar to be executable
+doubleclick
+
+
+
+#][! Minecraft Curseforge ATM-Modpack install
+1. Install Minecraft version plus forge
+2. Download Modpack plus server files
+3. Unzip both
+3. Copy mod folder from server files to .minecraft
+4. Copy all file from overrides folder of the modpack to .minecraft
+
+
+
+#][! Minecraft FTB arco install
+# Java install
+yay -S jdk-openjdk
+# Download and installthe FTB-App from official website
+sh FTBA_scriptname.sh
+
+
+
+#][! Qtile memory widget  remove decimals
+# edit line in .config/qtile/config.py to:
+# widget.Memory
+format = '{MemUsed: .0f}M/{MemTotal: .0f}M',
+
+
+
+format = '{MemUsed: .0f}M/{MemXXTotal: .0f}M',
+#][! Qtile Keyboard Shorcuts
+# File:
+.config/qtile/sxhkd/sxhkdrc
+
+
+
+#][! Qtile set screen resolution
+# set with arandr and save output
+# Output:
+xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off
+# copy into at specified location
+.config/qtile/scripts
+
+
+
+#][! Nano editor shortcuts
+^ represents Ctrl
+M represents Alt
+Copy	Alt+6pü
+Paste	Ctrl+U
+Cut		Ctrl+K
+Help	Ctrl+G
+
+
+
+#][! Installing nvim with Config file init.vim 
+# From AUR, so using yay wrapper
+yay -S neovim
+yay -S vim-plug
+copy the init.vim to .config/nvim/
+Open nvim and type :PlugInstall
+
+
+
+#][! Changing alacritty font size
+~/.config/alacritty/alacritty.yml
+
+
+
+#][! Nvim copy, cut, paste
+Visual Mode key:       v
+Visual Line Mode key:	V
+Visual Block Mode key: Ctrl+v 
+Copy key:	y
+Cut key:	d
+Paste before cursor:	P
+Paste behind cursor:	p
+Oder einfach Nano nehmen der funktioniert wenigstens xD
+
+
+
+#][! Execute a script
+bash myscript.sh
+zsh myscripts.sh
+
+
+
+#][! Creating / working with variables in bash
+# make variable
+name = hello
+# using variable
+echo $name
+
+
+
+#][! Write into a file in bash
+output > filename
+output >> filename
+echo "This is a line" > file.txt
+# Prevent overwriting of existing files
+set -o noclobber
+echo "test" > file.txt
+# Append at the end of a file
+echo "Append Text" >> file.txt
+
+
+
+#][! Arcolinux fun stuff
+sudo pacman -S arcolinux-meta-fun
+# asciiquarium  bash-pipes  boxes  bpytop  cava  cool-retro-term  cowfortune
+# cmatrix-git  cpufetch-git  curseradio-git  cxxmatrix-git  figlet  gotop-bin
+# inetutils  lolcat  mc  nixieclock  pfetch  python-pywal  ranger  sl  slurm
+# toilet  tty-clock  ufetch-git  ufetch-arco-git  wttr
+
+# Aquarium in the console
+asciiquarium
+# Draws pipes on the screen
+bash-pipes
+# matrix screen
+cmatrix
+# polished interminal conky / task manager
+bpytop
+# really cool fallout like terminal
+cool-retro-term
+# internet radio for all countries
+curseradio
+# animated matrix console
+cxxmatrix
+# animated train
+sl
+# terminal clock
+tty-clock
+#
+
+
+
+#][! Alacritty terminal themes
+alacritty-themes
+# add permanently
+.config/alacritty/alacritty.yml
+
+
+
+#][! Conky disappears after showing desktop
+edit the conkyrc of the specific file and change own_windows_type ='desktop' to 'override'
+
+
+
+#][! GPU-switching between nvidia and intel with optimus-manager
+# github documentation
+https://github.com/Askannz/optimus-manager
+# naturally the driver is needed
+sudo pacman -S nvidia
+# optimus-manager
+sudo pacman -S optimus-manager
+# check if optimus-manager daemon has been enabled
+systemctl status optimus-manager.service
+# switch to Nvidia-GPU
+optimus-manager --switch nvidia
+# switch to integrated GPU
+optimus-manager --switch integrated
+# Hybrid, uses iGPU but leaves Nvidia GPU avaible for on-demand offloading
+optimus-manager --switch hybrid
+# "startup_mode" on system boot by editing config
+# this will overwrite the standard- options in /usr/share/optimus-manager.conf
+# the config file in /usr/share should never be edited
+# create file in /etc if it does not exist
+ /etc/optimus-manager/optimus-manager.conf
+# custom changes for the optimus-manager.conf (still issues with sddm login
+[amd]
+DRI=3
+driver=modesetting
+tearfree=
+
+[intel]
+DRI=3
+accel=
+driver=modesetting
+modeset=yes
+tearfree=
+
+[nvidia]
+DPI=96
+PAT=yes
+allow_external_gpus=no
+dynamic_power_management=fine
+ignore_abi=no
+modeset=yes
+options=overclocking
+
+[optimus]
+auto_logout=yes
+pci_power_control=no
+pci_remove=no
+pci_reset=no
+startup_auto_battery_mode=integrated
+startup_auto_extpower_mode=nvidia
+startup_mode=nvidia
+switching=none
+
+# GPU-switching with envycontrol
+sudo yay -S envycontrol
+# switch GPU [integrated, nvidia, hybrid]
+sudo envycontrol -s <MODE>
+# Note for sddm-users
+# If /usr/share/sddm/scripts/Xsetup file is missing on your system please run
+sudo envycontrol --reset_sddm
+# configure sddm with nvidia
+sudo envycontrol -s nvidia --dm sddm
+
+
+
+#][! Screenshots
+# Interactive menu
+gnome-screenshot --interactive
+# Selection and copy to clipboard
+gnome-screenshot -ac
+
+
+
+#][! Minecraft Mods Debian
+https://raspberrytips.com/install-minecraft-forge-on-linux/
