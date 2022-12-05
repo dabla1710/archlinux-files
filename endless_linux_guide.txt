@@ -9,6 +9,35 @@
 
 
 
+#][ ! git basics
+# config username for git
+git config --global user.name "myname"
+# set email
+git config -global user.mail "daniel.blaich@outlook.com"
+# creating a new project directory
+git init project1
+# adding a file to version control (for next commit)
+git add file1.txt
+# commit messages
+git commit -m "My first commity"
+
+# Color highlighting in console (didnt work)
+git config --global color.ui true
+git config --global color.status auto
+git config --global color.branch auto
+
+# Setting default editor
+git config --global core.editor vim
+
+# Show git config list
+git config --list
+
+# Create a bare repository
+mkdir project.git
+cd project.git
+git --bare init
+
+
 
 # ][! Installing alacritty-theme from github
 git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
