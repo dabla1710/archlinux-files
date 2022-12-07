@@ -10,7 +10,7 @@ sudo pacman -S yay
 sudo pacman -S zsh --noconfirm --needed
 # changing default shell to zsh (requires relog)
 # chsh -s /bin/zsh
-chsh -s ($which zsh)
+chsh -s /bin/zsh
 # Install neovim
 sudo pacman -S nvim --no-confirm --needed
 # make dir for nvim
@@ -48,7 +48,7 @@ sudo pacman -S xorg-xwayland xorg-xlsclients qt5-wayland glfw-wayland
 #yay -S autotling
 ##### CLI applications
 # cmatrix
-sudo pacman -S cmatrix
+#sudo pacman -S cmatrix
 # ddgr (command line search)
 yay -S ddgr
 ##### GUI applications
@@ -57,6 +57,6 @@ sudo pacman -S discord
 # onlyoffice
 yay -S onlyoffice-bin
 # Mailspring, gnome-keyring & libsecret
-sudo pacman -S libsecret --no-confirm --needed
-sudo pacman -S gnome-keyring --no-confirm --needed
-yay -S mailspring
+#sudo pacman -S libsecret --no-confirm --needed
+#sudo pacman -S gnome-keyring --no-confirm --needed
+#yay -S mailspring

@@ -8,8 +8,48 @@
 -
 
 
+#][! wayland blurry electron apps (chromium, brave, skype, etc.)
+# add startparameters
+application -enable-features=UseOzonePlatform -ozone-platform=wayland
+# (permanent solution - works for wofi-launcher, did not work for command line)
+# for permant change cp /usr/share/applications/appxy.desktop
+# to ~/.local/share/application, so its not overwritten by updates
+# add parameters or console parameter with - to the Exec lines e.g.:
+Exec=/usr/bin/chromium -enable-features=UseOzonePlatform -ozone-platform=wayland %U
+# update desktop entries
+update-desktop-database ~/.local/share/applications
 
-#][ ! git basics
+#][! Brave or chromium blurry on wayland
+open chromium://flags or brave://flags
+and change Preferred Ozone Platform to wayland
+
+
+
+#][! pacman common commands
+# Install and update package list
+pacman -Syu
+# Install package
+pacman -S
+# Remove package and dependencies not required by any other package
+pacman -Rs
+# Remove package, dependencies and dependents (reminder: recursive operation)
+pacman -Rsc
+# Removeing a package group
+pacman -Rsu
+# Search a package
+pacman -Ss <keywords>
+# List explicitly installed packages (after base install)
+pacman -Qe
+# search install packages for keywords
+pacman -Qs <query>
+# List unneeded packages
+pacman -Qdt
+# uninstall unneeded packages
+pacman -Rns $(pacman -Qdtq)
+
+
+
+#][! git basics
 # config username for git
 git config --global user.name "myname"
 # set email
@@ -39,7 +79,7 @@ git --bare init
 
 
 
-# ][! Installing alacritty-theme from github
+#][! Installing alacritty-theme from github
 git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
 # Add in alacritty.yaml file e.g. darcula}:
 import:
@@ -54,13 +94,13 @@ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 
 
-# ][! Converting images to a .png file using mogrify
+#][! Converting images to a .png file using mogrify
 # In current folder
 find . -name "*.jpg" -exec mogrify -format png {} \;
 
 
 
-# ][! i3 dpi scaling for windows or i3 panels
+#][! i3 dpi scaling for windows or i3 panels
 # add line to .Xresources
 Xft.dpi:	220
 # Merge to make it properly loaded in .xinitrc

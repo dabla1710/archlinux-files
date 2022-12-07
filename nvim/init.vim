@@ -12,15 +12,12 @@ set autoindent smartindent
 " clipboard for cut and paste
 set clipboard+=unnamedplus
 
-"----- Plugins -----
+"Plugins
 set nocompatible
 
 call plug#begin()
 
-"Install Themes
 Plug 'tanvirtin/monokai.nvim'
-"tokyonight-{}  with {night, storm, day, moon}
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 "syntax and indent support
 Plug 'sheerun/vim-polyglot'
@@ -41,4 +38,4 @@ map <silent> <C-n> :NERDTreeFocus<CR>
 map <silent> <C-t> :NERDTreeToggle<CR>
 
 "colorscheme
-colorscheme tokyonight-night
+colorscheme monokai
