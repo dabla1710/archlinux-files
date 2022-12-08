@@ -1,3 +1,6 @@
+# endless linux guide
+cp ~/endless_linux_guide.txt ~/archlinux-files/
+
 # neovim
 cp -r ~/.config/nvim ~/archlinux-files/
 # alacritty

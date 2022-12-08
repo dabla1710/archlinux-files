@@ -29,13 +29,13 @@
 
     "modules-right": [
         "idle_inhibitor", 
-        "mpd", 
+        //"mpd", 
         "network", 
         "cpu", 
         "memory", 
         "backlight", 
-        "keyboard-state", 
-        "sway/language", 
+        //"keyboard-state", 
+        //"sway/language", 
         "pulseaudio", 
         "battery", 
         "battery#bat2",

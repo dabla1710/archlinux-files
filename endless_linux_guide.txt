@@ -50,10 +50,14 @@ pacman -Rns $(pacman -Qdtq)
 
 
 #][! git basics
+# github-cli for login
+sudo pacman -S github-cli
 # config username for git
 git config --global user.name "myname"
 # set email
-git config -global user.mail "daniel.blaich@outlook.com"
+git config --global user.mail "my@mail.com"
+# Login with github cli
+gh auth login
 # creating a new project directory
 git init project1
 # adding a file to version control (for next commit)

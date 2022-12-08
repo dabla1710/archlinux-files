@@ -18,6 +18,10 @@
 @define-color color4        #fbece9;
 @define-color color5        #feffe1;
 
+/* unified trasparent white boarder styling */
+@define-color unified-border    #ffffff;
+@define-color unified-text      #c3aa5b;
+
 /* Global settings */
 * {
     border: none;
@@ -74,7 +78,7 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: @unified-text;
     /*
     border: 1px solid white;
     border-radius: 10;
@@ -91,9 +95,6 @@ button:hover {
 /* hover with mouse */
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
-    /*border: 1px solid white;
-    border-radius: 10;
-    */
 }
 
 /* no idea */
@@ -156,7 +157,8 @@ button:hover {
 /* --- START WIDGETS MIDDLE --- */
 #clock {
     background-color: transparent;
-    color: white;
+    color: @unified-text;
+    font-size: 18px
 }
 
 /* ----- END WIDGETS MIDDLE ----- */
@@ -167,18 +169,24 @@ button:hover {
 
 /* battery */
 #custom-power {
-    background-color: @color1;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 #battery {
-    background-color: @color2;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 #battery.charging, #battery.plugged {
-    background-color: @color2;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 @keyframes blink {
@@ -190,7 +198,9 @@ button:hover {
 
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
-    color: #ffffff;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -205,60 +215,103 @@ label:focus {
 
 /* pulseaudio */
 #pulseaudio {
-    background-color: @color3;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 #pulseaudio.muted {
-    background-color: @color3;
+    background-color: transparent;
     color: darkred;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 /* Brightness Backlight */
 
 #backlight {
-    background-color: @color4;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 /* RAM percent*/
 #memory {
-    background-color: @color5;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 /* CPU percent */
 #cpu {
-    background-color: @color1;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 /* network */
 #network {
-    background-color: @color2;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 #network.disconnected {
-    background-color: @color2;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
+
+/* Idle inhibitor */
+
+#idle_inhibitor {
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
+}
+
+#idle_inhibitor.activated {
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
+}
+
+/* ----- END WIDGETS RIGHT ----- */
+
+
+/* ----- UNUSED WIDGETS ----- */
+
 
 /* mpd - music player demon */
 
 #mpd {
-    background-color: @color3;
-    color: black;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 #mpd.disconnected {
-    background-color: @color3;
-    color: grey;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
+
 }
 
 #mpd.stopped {
-    background-color: @color3;
-    color: grey;
+    background-color: transparent;
+    color: @unified-text;
+    border: 1px solid @unified-border;
+    border-radius: 10;
 }
 
 #mpd.paused {
@@ -266,19 +319,8 @@ label:focus {
     color: grey;
 }
 
-/* Idle inhibitor */
 
-#idle_inhibitor {
-    background-color: @color4;
-    color: grey;
-}
 
-#idle_inhibitor.activated {
-    background-color: @color4;
-    color: dimgrey;
-}
-
-/* ----- END WIDGETS RIGHT ----- */
 #wireplumber {
     background-color: #fff0f5;
     color: #000000;
