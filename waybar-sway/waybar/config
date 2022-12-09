@@ -8,6 +8,8 @@
 
     "modules-left": [
         "custom/launcher",
+        "clock",
+        "custom/seperator",
         "sway/workspaces",
         "sway/mode",
     ],
@@ -16,23 +18,30 @@
     ],
 
     "modules-right": [
-        "network",
+        //"network",
+        "tray",
+        "custom/seperator",
         "idle_inhibitor",
-        "memory",
+        "custom/seperator",
         "cpu",
-        "pulseaudio",
-        "custom/keyboard-layout",
-        "battery",
+        "memory",
+        //"custom/keyboard-layout",
         //"custom/PBPbattery",
+        "custom/seperator",
+        "pulseaudio",
         "backlight#icon",
         "backlight#value",
-        "clock",
-        "tray",
+        "custom/seperator",
+        "battery",
         //"custom/weather",
         "custom/power",
     ],
 
     // Modules
+    
+    "custom/seperator": {
+        "format": "|"
+    },
 
     "idle_inhibitor": {
         "format": "{icon} ",
@@ -48,9 +57,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}% ",
+        "format-plugged": " {capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -70,7 +79,7 @@
 
     "cpu": {
         "interval": 5,
-        "format": "  {usage}% ({load})", // Icon: microchip
+        "format": "  {usage}%", //({load}) Icon: microchip
         "states": {
             "warning": 70,
             "critical": 90,
@@ -140,8 +149,8 @@
 
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%  {format_source}",
         "format-bluetooth-muted": " {icon}  {format_source}",
         "format-muted": "婢 {format_source}",
         "format-source": "{volume}% ",

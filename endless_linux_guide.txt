@@ -1,11 +1,51 @@
-# In this document belongs every information I used or learned in Arcolinux
+# In this document belongs every information I used or learned in Arch-Linux
 # This is for looking things up quicky by searching the document
 # ToDo: make command line aliases to start the script search from anywhere
 # ToDo: make a script to print every entry with description if search-keyword is in header
+# ToDo: Cleanup debian fragments
 # Every entry titel start with #][!
 -
 -
 -
+
+#][! Lightweight image viewer for X11/Wayland
+sudo pacman -S imv
+
+
+#][! setting default applications for filetypes with perl-file-mimeinfo
+# Install perl-file-mimeinfo
+sudo pacman -S perl-file-mimeinfo
+# determine a file's MIME type
+$ mimetype photo.jpeg
+photo.jpeg: image/jpeg
+
+# choose the default application for this file
+$ mimeopen -d photo.jpeg
+# This does change the mime for xdg-open as well
+Please choose an application
+
+    1) Feh (feh)
+    2) GNU Image Manipulation Program (gimp)
+    3) Pinta (pinta)
+
+use application #
+
+# open a file with its default application
+$ mimeopen -n photo.jpeg
+
+
+
+
+#][! Changing sddm theme and wayland hidpi mode
+# HiDpi not working in any config
+# Download themes and put them in /usr/share/sddm/themes as standard path
+# man sddm.conf for help with customizing
+# usually need to edit /etc/sddm.conf
+
+# I changed the wallpaper in the default theme of endeavour because missing
+# plasma dependencies for the downloaded sddm themes
+# in /usr/share/sddm/themes/endeavouros/theme.conf
+# and copied the picture in the same location to be accessible by sddm
 
 
 #][! wayland blurry electron apps (chromium, brave, skype, etc.)
@@ -18,6 +58,8 @@ application -enable-features=UseOzonePlatform -ozone-platform=wayland
 Exec=/usr/bin/chromium -enable-features=UseOzonePlatform -ozone-platform=wayland %U
 # update desktop entries
 update-desktop-database ~/.local/share/applications
+
+
 
 #][! Brave or chromium blurry on wayland
 open chromium://flags or brave://flags

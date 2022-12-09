@@ -57,10 +57,11 @@ Arc-Dark Color Scheme
     color: #bebebe;
     background-color: @base1;
     font-family: UbuntuMono;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* Every modules */
+#custom-seperator,
 #battery,
 #clock,
 #backlight,
@@ -82,6 +83,10 @@ Arc-Dark Color Scheme
 /* -----------------------------------------------------------------------------
  * Modules styles
  * -------------------------------------------------------------------------- */
+
+#custom-seperator {
+    color: white;
+}
 
 #battery {
     animation-timing-function: linear;

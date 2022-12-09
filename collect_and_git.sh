@@ -38,5 +38,20 @@ cp -r ~/.config/sway ~/archlinux-files/
 echo "sway fetched"
 # endless linux guide
 cp ~/endless_linux_guide.txt ~/archlinux-files/
-echo "endless_linux_guide fetched"
+echo "endless_linux_guide fetched\n"
+
+# upload to git
+cd ~/archlinux-files
+echo "(y/n) Do you want to save to git ?"
+read want_git_upload
+if [[ $want_git_upload = "y" ]]
+then
+	echo "Please enter your commit message"
+	read git_message
+	git add ./*
+	git commit -m "$git_message"
+	git push
+	echo "Successfully pushed the commit"
+
+fi
 
