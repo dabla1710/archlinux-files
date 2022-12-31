@@ -1,0 +1,86 @@
+#---# gnome-terminal themes interactive script
+bash -c  "$(wget -qO- https://git.io/vQgMr)" 
+
+
+
+#---#  Install joplin-desktop on fedora
+# add rpm repo
+sudo dnf install -y dnf-plugins-core
+sudo dnf copr enable taw/joplin
+sudo dnf install -y joplin
+
+
+
+
+#---# Install Anki on fedora (dnf package outdated 3 years)
+# Download Anki from
+https://apps.ankiweb.net/
+
+# Extract and install
+tar xaf Downloads/anki-2.1.XX-linux-qt6.tar.zst
+cd anki-2.1.XX-linux-qt6
+sudo ./install.sh
+
+
+
+#---# setting the hostname
+sudo hostnamectl set-hostname --pretty "Emily's 2nd dev laptop"
+sudo hostnamectl set-hostname --static emily-dev-2
+
+
+
+#---# [Fedora] Installing only office
+#Required fonts
+sudo dnf install dejavu-sans-fonts dejavu-sans-mono-fonts dejavu-serif-fonts liberation-narrow-fonts
+# download rpmm package
+https://www.onlyoffice.com/de/download-desktop.aspx
+# install the package
+sudo rpm -i packagename
+
+
+
+#---# [Fedora] Install gnome-tweaks
+sudo dnf install gnome-tweaks
+
+
+
+#---# [Fedora] Install gnome-extensions
+sudo dnf install gnome-extensions-app
+
+
+
+#---# Install Starship prompt
+# Install
+curl -sS https://starship.rs/install.sh | sh
+# in .bashrc
+eval "$(starship init bash)"
+# in config.fish
+starship init fish | source
+# in .zshrc
+eval "$(starship init zsh)"
+
+
+#---# Install vim-plug for neovim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+
+
+#---# [Fedora]Install brave
+sudo dnf install dnf-plugins-core
+
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+sudo dnf install brave-browser
+
+
+
+#---# [Fedora] Improving dnf download speed
+# edit dnf.conf file
+sudo nvim /etc/dnf/dnf.conf
+#add lines for parallel downloads and fastet mirrors
+max_parallel_downloads=10
+fastetmirror=True
+

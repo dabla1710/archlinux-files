@@ -4,12 +4,38 @@
 # ToDo: make a script to print every entry with description if search-keyword is in header
 # ToDo: Cleanup debian fragments
 # Every entry titel start with #][!
+# change start of articles to #####! 
 -
 -
 -
 
+
+
+#][! Steam games launch option for wayland
+# Does only work for SDL games curretnly
+SDL_VIDEODRIVER=wayland
+
+
+
+#][! Set gnome wayland session in gdm login
+# edit /etc/gdm/custom.conf and comment out WaylandEnable
+# Do not forget to change with option cogwheel when logging in
+
+#WaylandEnable=false
+WaylandEnable=true
+#DefaultSession=gnome-xorg.desktop
+DefaultSession=gnome-wayland
+
+
+
+#][! show if xorg or wayland is running
+echo $XDG_SESSION_TYPE
+
+
+
 #][! Lightweight image viewer for X11/Wayland
 sudo pacman -S imv
+
 
 
 #][! setting default applications for filetypes with perl-file-mimeinfo
@@ -46,6 +72,7 @@ $ mimeopen -n photo.jpeg
 # plasma dependencies for the downloaded sddm themes
 # in /usr/share/sddm/themes/endeavouros/theme.conf
 # and copied the picture in the same location to be accessible by sddm
+
 
 
 #][! wayland blurry electron apps (chromium, brave, skype, etc.)
@@ -241,6 +268,7 @@ sudo pacman -S zsh-theme-powerlevel10k --needed
 
 # reload config
 xrdb ~/.Xresources
+
 
 
 #][! ranger change default editor to nvim
