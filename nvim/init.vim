@@ -28,8 +28,7 @@ Plug 'sheerun/vim-polyglot'
 "COC LSP language support - yarn requiered
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Install language servers like this for example:
-":CocInstall coc-python coc-jedi
-"coc-sh coc-sql coc-css coc-clangd coc-html coc-css
+":CocInstall coc-python coc-jedi coc-jedi-language-server coc-sh coc-clangd coc-sql coc-css coc-html coc-css
 
 "coc languages and server
 "CocList extensions to get a list
