@@ -6,20 +6,23 @@
 sudo pacman -S yay
 # Install zsh
 sudo pacman -S zsh --noconfirm --needed
+# Install fish
+sudo pacman -S fish --noconfirm --needed
 # changing default shell to zsh (requires relog)
 # chsh -s /bin/zsh
-chsh -s /bin/zsh
+chsh -s /bin/fish
 # Install neovim
-sudo pacman -S nvim --no-confirm --needed
+sudo pacman -S neovim --no-confirm --needed
 # Install vim-plug
 yay -S vim-plug
 # ToDo! Autoload nvim config from git ?
 # config files from github, no WM or DE yet
-git clone https://github.com/dabla1710/archlinux-files ~
+#git clone https://github.com/dabla1710/archlinux-files ~
 cd ~/archlinux-files
 cp -r alacritty nvim waybar neofetch ~/.config/
 cp endless_linux_guide.txt ~
 
+cd ~
 # Installing and updating mlocate
 sudo pacman -S mlocate
 sudo updatedb
@@ -27,12 +30,9 @@ sudo updatedb
 # copy config (run :PlugInstall after in nvim)
 # cp init.vim ~/.config/nvim/
 
-# Install oh-my-zsh (zsh autosetup) (curl and git necessary)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Install powerlevel 10k theme (configure with 'p10k configure')
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+#echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 # alacritty-theme
 git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
@@ -49,7 +49,7 @@ git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorsch
 # wayland support and helper xlsclients
 sudo pacman -S xorg-xwayland xorg-xlsclients qt5-wayland glfw-wayland
 # exec_always autotling in config
-#yay -S autotling
+yay -S autotling
 
 
 ##### CLI applications
@@ -68,4 +68,9 @@ yay -S onlyoffice-bin
 yay -S teams
 yay -S skypeforlinux-stable-bin
 yay -S brave-bin
+yay -S joplin-appimage
+
+# Install oh-my-zsh (zsh autosetup) (curl and git necessary)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 

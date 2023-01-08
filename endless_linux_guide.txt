@@ -11,6 +11,34 @@
 
 
 
+#][! Installing the rust-analyzer and use it in neovim
+sudo pacman -S rust-analyzer
+
+# In neovim
+:CocInstall coc-rust-analyzer
+
+
+
+#][! Installing rustup and removing rust on arch
+# rust is for executing abd rustup for developing also
+sudo pacman -S rustup
+
+# setup the toolchain, stable or nightly
+rustup default stable
+
+
+
+#][! install python pip on arch
+sudo pacman -S python-pip
+
+
+
+#][! nautilus unables to access media - error mounting
+sudo pacman -S ntfs-3g
+
+
+
+
 #][! Steam games launch option for wayland
 # Does only work for SDL games curretnly
 SDL_VIDEODRIVER=wayland
@@ -181,11 +209,15 @@ xrdb -merge ~/.Xresources
 
 
 
-#][! Accessing the system clipboard from X11 inside neovim
-# Install xclip for access
+#][! Accessing the system clipboard inside neovim
+# Install xclip for access on X11
 sudo pacman -S xclip
+# Use the bundled package wl-clipboard on wayland
+sudo pacman -S wl-clipboard
 # Add line to init.vim
 set clipboard+=unnamedplus
+
+
 
 
 
