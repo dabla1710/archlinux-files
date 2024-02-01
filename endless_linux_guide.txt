@@ -9,6 +9,28 @@
 -
 -
 
+#[]! Raylib setup for cpp
+
+# Libraries
+sudo pacman -S alsa-lib mesa libx11 libxrandr libxi libxcursor libxinerama
+
+#for X11
+sudo pacman -S glfw-x11
+
+git clone https://github.com/raysan5/raylib.git raylib
+cd raylib/src/
+make PLATFORM=PLATFORM_DESKTOP # To make the static version
+sudo make install
+
+# for raylib examples in raylib/examples/
+make PLATFORM=PLATFORM_DESKTOP
+
+
+
+#][! Scaling rofi in i3wm
+# Edit ~/.config/i3/config and add option for dpi to exec
+rofi -show drun -dpi 1
+
 
 
 #][! Installing the rust-analyzer and use it in neovim
